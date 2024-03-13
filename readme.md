@@ -21,6 +21,8 @@ Algumas razões pelas quais o Express é tão amplamente adotado:
    - O Node.js, em conjunto com o Express, oferece alta performance e escalabilidade.
    - Ele é ideal para aplicações em tempo real, como chats, streaming e jogos online.
 
+<div style="width: 100%; border: solid 2px darkblue; margin: 20px 0; padding: 5px 0">
+
 5. **Roteamento Intuitivo**:
    - O sistema de roteamento do Express facilita a definição de rotas para diferentes URLs e métodos HTTP.
    - Isso **melhora a organização do código e torna o desenvolvimento mais eficiente**.
@@ -33,7 +35,56 @@ Algumas razões pelas quais o Express é tão amplamente adotado:
    - O Express permite que os desenvolvedores adicionem pacotes e bibliotecas conforme necessário.
    - Ele é compatível com vários módulos e ferramentas de terceiros.
 
+</div>
 
+
+## Exemplo
+
+Com express é possível criar componentes para serem reutilizados em diversas aplicações.  
+Por exemplo, um controller que valida o login/credenciais de um usuário.
+
+``` js
+const express = require('express');
+const router = express.Router();
+
+const users = [
+  { id: 1, username: 'usuario1', password: 'senha123' },
+  { id: 2, username: 'usuario2', password: 'senha456' }
+];
+
+function authenticate(username, password) {
+  return users.find(user => user.username === username && user.password === password);
+}
+
+router.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res.status(400).json({ message: 'Usuário e senha são obrigatórios.' });
+  }
+
+  const user = authenticate(username, password);
+
+  if (user) {
+    req.session.user = user;
+    return res.json({ message: 'Login bem-sucedido.' });
+  } else {
+    return res.status(401).json({ message: 'Credenciais inválidas.' });
+  }
+});
+
+
+router.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).json({ message: 'Erro ao fazer logout.' });
+    }
+    res.json({ message: 'Logout bem-sucedido.' });
+  });
+});
+
+module.exports = router;
+```
 
 
 - [Introdução Express/Node no MDN](https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Express_Nodejs/Introduction)
