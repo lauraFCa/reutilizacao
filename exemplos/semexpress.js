@@ -1,5 +1,5 @@
-const http = require('http');
-const { parse } = require('url');
+import { createServer } from 'http';
+import { parse } from 'url';
 const PORT = 3000;
 
 let users = [
@@ -8,7 +8,7 @@ let users = [
     { id: 3, name: 'Charlie' }
 ];
 
-const server = http.createServer((req, res) => {
+const server = createServer((req, res) => {
     const { pathname, query } = parse(req.url, true);
 
     if (pathname === '/users' && req.method === 'GET') {
