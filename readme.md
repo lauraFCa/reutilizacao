@@ -21,17 +21,20 @@ Algumas razões pelas quais o Express é tão amplamente adotado:
    - O Node.js, em conjunto com o Express, oferece alta performance e escalabilidade.
    - Ele é ideal para aplicações em tempo real, como chats, streaming e jogos online.
 
+5. **Compatibilidade**
+   - ExpressJS funciona com diversos tipos de bancos de dados, sendo necessário apenas a instalação do driver referente
+
 <div style="width: 100%; border: solid 2px darkblue; margin: 20px 0; padding: 5px 0">
 
-5. **Roteamento Intuitivo**:
+6. **Roteamento Intuitivo**:
    - O sistema de roteamento do Express facilita a definição de rotas para diferentes URLs e métodos HTTP.
    - Isso **melhora a organização do código e torna o desenvolvimento mais eficiente**.
 
-6. **Middlewares**:
+7. **Middlewares**:
    - O Express utiliza middlewares para processar requisições antes que elas alcancem as rotas finais.
    - **Isso permite adicionar funcionalidades como autenticação, logging e tratamento de erros de forma modular e reutilizável.**
 
-7. **Extensibilidade e Modularidade**:
+8. **Extensibilidade e Modularidade**:
    - O Express permite que os desenvolvedores adicionem pacotes e bibliotecas conforme necessário.
    - Ele é compatível com vários módulos e ferramentas de terceiros.
 
@@ -97,3 +100,4 @@ module.exports = router;
 - [Express - Desenvolvendo aplicações web](https://www.treinaweb.com.br/curso/express-desenvolvendo-aplicacoes-web)
 - [O que é Express](https://community.revelo.com.br/o-que-e-express/)
 - [ExpressJs: Simplificando o desenvolvimento de aplicações web com node js](https://awari.com.br/express-js-simplificando-o-desenvolvimento-de-aplicacoes-web-com-node-js/)
+- [ExpressJS - Database integration](https://expressjs.com/en/guide/database-integration.html)
